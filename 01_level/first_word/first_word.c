@@ -1,53 +1,39 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mvelasqu <mvelasqu@student.42singapore.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 13:38:30 by mvelasqu          #+#    #+#             */
-/*   Updated: 2026/02/04 13:30:29 by mvelasqu         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
-void	ft_putchar(char c)
+// 7 min
+
+void ft_putchar(char s)
 {
-	write(1, &c, 1);
+    write(1, &s,1);
 }
 
-void	ft_putstr(char *str)
+void ft_first_word(char *s)
 {
-	int		i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
+    int i =0;
+    while(s[i] == ' ' || s[i] == '\t')
+    {
+        i++;
+    }
+    while(s[i] >= 33 && s[i] <= 126)
+    {
+        ft_putchar(s[i]);
+        i++;
+    }
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	char	*str;
-	int		i;
-
-	if (argc != 2)
-	{
-		ft_putchar('\n');
-		return (0);
-	}
-	i = 0;
-	str = argv[1];
-	while (str[i] == ' ')
-		i++;
-	while (str[i] != '\0' && str[i] != ' ')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	ft_putchar('\n');
-	return (0);
+    if (argc != 2)
+    {
+        ft_putchar('\n');
+        return 0;
+    }
+    if (argv[1][0] == '\0')
+    {
+        ft_putchar('\n');
+        return 0;
+    }
+    ft_first_word(argv[1]);
+    ft_putchar('\n');
+    return 0;
 }
