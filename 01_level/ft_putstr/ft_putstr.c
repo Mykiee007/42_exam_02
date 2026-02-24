@@ -1,30 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mvelasqu <mvelasqu@student.42singapore.    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/11 16:12:13 by mvelasqu          #+#    #+#             */
-/*   Updated: 2026/02/11 16:15:31 by mvelasqu         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
-void	ft_putstr(char *str)
+//2 min
+
+void ft_putchar(char c)
 {
-	if (!str)
-		return ;
-	while (*str)
-	{
-		write (1, str, 1);
-		str++;
-	}
+	write(1, &c, 1);
 }
 
-int main (void)
+void ft_putstr(char *str)
 {
-	ft_putstr("hello");
-	return (0);
+	while (*str)
+	{
+		ft_putchar(*str);
+		str++;
+	}
 }
