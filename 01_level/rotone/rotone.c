@@ -1,53 +1,33 @@
 #include <unistd.h>
 
+// 10min
+
 void ft_putchar(char c)
 {
-    write (1,&c,1);
-}
-
-void ft_putstr(char *str)
-{
-    int i = 0;
-
-    while (str[i] != '\0')
-    {
-        ft_putchar(str[i]);
-        i++;
-    }
-    str[i] = '\0';
-}
-
-char *rotone(char *s)
-{
-    int i = 0;
-
-    while (s[i] != '\0')
-    {
-        if (s[i] == 'Z')
-            s[i] = 'A';
-        else if (s[i] == 'z')
-            s[i] = 'a';
-        else if (s[i] >= 'A' && s[i] <= 'Y')
-            s[i] = s[i] + 1;
-        else if (s[i] >= 'a' && s[i] <= 'y')
-            s[i] = s[i] +1;
-        i++;
-    }
-    return (s);
+	write(1, &c, 1);
 }
 
 int main(int argc, char **argv)
 {
-    char *str;
+	int i = 0;
+	char *s;
 
-    if (argc != 2)
-    {
-        ft_putchar('\n');
-        return 0;
-    }
-    str = argv[1];
-    ft_putstr(rotone(str));
-    ft_putchar('\n');
-    
-    return (0);
+	if (argc == 2)
+	{
+		s = argv[1];
+		while(s[i] != '\0')
+		{
+			if (s[i] == 'z')
+				ft_putchar('a');
+			else if (s[i] == 'Z')
+				ft_putchar('A');
+			else if (s[i] >= 'a' && s[i] <= 'y' || s[i] >= 'A' && s[i] <= 'Y')
+				ft_putchar(s[i] + 1);
+			else
+				ft_putchar(s[i]);
+			i++;
+		}
+	}
+	ft_putchar('\n');
+	return 0;
 }

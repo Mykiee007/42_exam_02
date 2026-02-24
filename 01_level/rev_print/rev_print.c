@@ -1,31 +1,24 @@
 #include <unistd.h>
 
-void ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-int ft_strlen(char *str)
-{
-	int	i = 0;
-
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+// 2min
 
 int main(int argc, char **argv)
 {
-	int i;
+	char *s;
+	int i = 0;
 
-	if (argc != 2)
-		return (0);
-	i = ft_strlen(argv[1]) - 1;
-	while (i >= 0)
+	if (argc == 2)
 	{
-		ft_putchar(argv[1][i]);
+		s = argv[1];
+		while(s[i] != '\0')
+			i++;
 		i--;
+		while(i >= 0)
+		{
+			write(1,&s[i],1);
+			i--;
+		}
 	}
-	ft_putchar('\n');
-	return (0);
+	write(1,"\n",1);
+	return 0;
 }
