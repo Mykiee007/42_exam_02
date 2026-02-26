@@ -1,45 +1,81 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// 11:50 - 12:13
-int *ft_range(int start, int end)
+//10:04 10:21
+
+int		*ft_range(int start, int end)
 {
 	int range;
 	int *arr;
-	int i = 0;
 
 	if (start > end)
-		range = start - (end) + 1;
-	else if (start < end)
-		range = end - (start) + 1;
-
-	arr = (int *)malloc(range*sizeof(int));
+		range = start - end;
+	else if (end > start)
+		range = end - start;
+	arr = (int *)malloc((range+1) * sizeof(int)); 
 	if (!arr)
-	{
-		printf("nothing to return\n");
 		return 0;
-	}
 	if (start > end)
 	{
-		while (start >= end)
+		while(range >=0)
 		{
-			arr[i] = end;
-			end++;
-			i++;
+			arr[range] = start;
+			start--;
+			range--;
 		}
 	}
 	else if (start < end)
 	{
-		while(start<=end)
+		while(range >= 0)
 		{
-			arr[i] = start;
-			start++;
-			i++;
+			arr[range] = end;
+			end--;
+			range--;
 		}
 	}
-	return arr;
+	return (arr);
 }
 
+
+// 11:50 - 12:13
+//int *ft_range(int start, int end)
+//{
+//	int range;
+//	int *arr;
+//	int i = 0;
+//
+//	if (start > end)
+//		range = start - (end) + 1;
+//	else if (start < end)
+//		range = end - (start) + 1;
+//
+//	arr = (int *)malloc(range*sizeof(int));
+//	if (!arr)
+//	{
+//		printf("nothing to return\n");
+//		return 0;
+//	}
+//	if (start > end)
+//	{
+//		while (start >= end)
+//		{
+//			arr[i] = end;
+//			end++;
+//			i++;
+//		}
+//	}
+//	else if (start < end)
+//	{
+//		while(start<=end)
+//		{
+//			arr[i] = start;
+//			start++;
+//			i++;
+//		}
+//	}
+//	return arr;
+//}
+//
 int main(int argc, char **argv)
 {
 	int *a;
@@ -64,5 +100,6 @@ int main(int argc, char **argv)
 			i++;
 		}
 	}
+	free(a);
 	return 0;
 }
