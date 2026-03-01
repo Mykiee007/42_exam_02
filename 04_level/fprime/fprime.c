@@ -1,44 +1,49 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// 11:08am 11:41
+// 9:57am
 
 int main(int argc, char **argv)
 {
+	int n;
 	int first = 1;
-
-	if (argc == 2)
+	if(argc == 2)
 	{
-		int i = 2;
-		int n;
-
+		int i;
 		n = atoi(argv[1]);
-		if(n == 1)
-			printf("1"); 
-		while((i * i) <= n) // 15
+		if (n == 1)
+			return 0;
+		i = 2;
+		printf("the number: %d\n",n);
+		while((i * i) <= n)
 		{
 			while(n % i == 0)
 			{
-				if(!first) {
+				
+				if (!first)
+				{
 					printf("*");
 				}
 				printf("%d", i);
 				first = 0;
 				n /= i;
-			} 
+			}
 			i++;
 		}
-		if(n > 1)
+		while (i <= n)
 		{
-			if(!first) 
-				printf("*");	
-			printf("%i",n);
+			if (!first)
+				printf("*");
+			if(i == n)
+				printf("%d",n);
+			i++;
 		}
-			
 	}
 	printf("\n");
 	return 0;
 }
+
+
 
 
 // 12:15 - 12:30
