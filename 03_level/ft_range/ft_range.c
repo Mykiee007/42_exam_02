@@ -1,9 +1,53 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
+//9:37 9:56
+
+int *ft_range(int start, int end)
+{
+	int range;
+	int *arr;
+	int i;
+
+	if (start == end)
+		range = 1;
+	if(start > end)
+		range = start - end;
+	else if (start < end)
+		range = end - start;
+	arr = malloc((range)*sizeof(int));
+	if(!arr)
+		return NULL;
+	
+	if (start > end)
+	{
+		i = 0;
+		while(end <= start)
+		{
+			arr[i] = end;
+			end++;
+			i++;
+		}
+	}
+	else if (end > start)
+	{
+		i = 0;
+		while(start <= end)
+		{
+			arr[i] = start;
+			start++;
+			i++;
+		}
+	}
+	return(arr);
+}
+
+
+
 //10:04 10:21
 
-int		*ft_range(int start, int end)
+/*int		*ft_range(int start, int end)
 {
 	int range;
 	int *arr;
@@ -34,7 +78,7 @@ int		*ft_range(int start, int end)
 		}
 	}
 	return (arr);
-}
+}*/
 
 
 // 11:50 - 12:13
@@ -100,6 +144,7 @@ int main(int argc, char **argv)
 			i++;
 		}
 	}
+	printf("\n");
 	free(a);
 	return 0;
 }
