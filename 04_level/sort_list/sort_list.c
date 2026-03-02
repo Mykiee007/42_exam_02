@@ -1,7 +1,34 @@
 #include "list.h"
 
-//10:23 10:30 pause start 10:29 - 1106
+// 11:36 - 11:59. need restart
 
+t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
+{
+	t_list *cur;
+	int tmp;
+
+	if(!lst)
+		return (lst);
+		
+	cur = lst;
+	while(cur && cur-> next)
+	{
+		if(!cmp(cur->data, cur-> next-> data))
+		{
+			tmp = cur-> data;
+			cur-> data = cur-> next-> data;
+			cur-> next-> data = tmp;
+			cur = lst;
+		}
+		else
+			cur = cur-> next;
+	}
+	return(lst);
+}
+
+
+//10:23 10:30 pause start 10:29 - 1106
+/*
 t_list	*sort_list(t_list *lst, int (*cmp)(int,int))
 {
 	t_list *cur;
@@ -28,7 +55,7 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int,int))
 		}
 	}
 	return lst;
-}
+}*/
 
 
 //2:17pm ~ 3:07
