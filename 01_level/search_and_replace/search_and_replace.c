@@ -1,8 +1,42 @@
 #include <unistd.h>
+//1:33pm ~ 1:55 pm
+int main(int argc, char **argv)
+{
+    int i = 0;
+    char *s;
+    char a;
+    char b;
+
+    if(argc == 4)
+    {
+        s = argv[1];
+        a = argv[2][0];
+        b = argv[3][0];
+        if(a == '\0' || argv[2][1] != '\0')
+        {
+            write(1,"\n",1);
+            return 0;
+        }
+        if(b == '\0' || argv[3][1] != '\0')
+        {
+            write(1,"\n",1);
+        return 0;
+        }
+        while(s[i] != '\0')
+        {
+            if(s[i] == a)
+                s[i] = b;
+            write(1,&s[i],1);
+            i++;
+        }
+    }
+    write(1,"\n",1);
+    return 0;
+}
 
 //22 min
 
-
+/*
 void ft_putchar(char c)
 {
     write( 1, &c, 1);
@@ -61,3 +95,4 @@ int main(int argc, char **argv)
     ft_putchar('\n');
     return (0);
 }
+    */
