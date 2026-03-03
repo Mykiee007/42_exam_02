@@ -1,4 +1,33 @@
+//3:40pm
 #include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    int i = 0;
+    char *s;
+    if(argc == 2)
+    {
+        s = argv[1];
+        if(!s)
+        {
+            write(1,"\n",1);
+            return(0);
+        }
+        while(s[i] != '\0' && ((s[i] == ' ' || s[i] == '\t')))
+            i++;
+        while(s[i] != '\0' && (s[i] >= 33 && s[i] <=126))
+        {
+            write(1,&s[i],1);
+            i++;
+        }
+    }
+    write(1,"\n",1);
+    return 0;
+}
+
+
+
+/*#include <unistd.h>
 
 // 7 min
 
@@ -36,4 +65,4 @@ int main(int argc, char **argv)
     ft_first_word(argv[1]);
     ft_putchar('\n');
     return 0;
-}
+}*/
