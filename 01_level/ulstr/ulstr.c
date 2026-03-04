@@ -1,3 +1,31 @@
+// 11:50 am
+
+#include <unistd.h>
+
+int	main(int argc, char **argv)
+{
+	int i = 0;
+	char *s;
+
+	if(argc == 2)
+	{
+		s = argv[1];
+
+		while(s[i] != '\0')
+		{
+			if(s[i] >= 'a' && s[i] <= 'z')
+				s[i] = s[i] - 32;
+			else if(s[i] >= 'A' && s[i] <= 'Z')
+				s[i] = s[i] + 32;
+			write(1,&s[i], 1);
+			i++;
+		}
+	}
+	write(1,"\n",1);
+	return 0;
+}
+
+/*
 #include <unistd.h>
 
 //8min
@@ -34,3 +62,4 @@ int main(int argc, char **argv)
     ft_putchar('\n');
     return 0;
 }
+*/
