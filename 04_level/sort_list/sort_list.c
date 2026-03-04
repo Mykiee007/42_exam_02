@@ -8,7 +8,7 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 	t_list *cur;
 	
 	if(!lst)
-		return NULL;
+		return lst;
 
 	cur = lst;
 	while(cur && cur-> next)
