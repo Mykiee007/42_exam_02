@@ -1,5 +1,27 @@
 #include <stdlib.h>
 
+char	*ft_strdup(char *src)
+{
+	int	i = 0;
+	char	*dup;
+
+	while(src[i] != '\0')
+		i++;
+	dup = (char *)malloc((i + 1) * sizeof(char));
+	if(!dup)
+		return NULL;
+	i = 0;
+	while(src[i] != '\0')
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return dup;
+}
+
+/*#include <stdlib.h>
+
 char    *ft_strdup(char *src)
 {
     int i;
@@ -27,4 +49,4 @@ int main(void){
 
     printf("%s\n",dup);
     return 0;
-}
+}*/

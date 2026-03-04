@@ -1,4 +1,58 @@
 #include <stdlib.h>
+
+int     *ft_range(int start, int end)
+{
+	int dis = start - end;
+	int *range;
+	int i = 0;
+
+	if(dis < 0)
+		dis = dis * -1;
+	dis = dis + 1;
+	range = (int *)malloc(dis*sizeof(int));
+	if(!range)
+		return NULL;
+	while(i < dis)
+	{
+		if(start < end)
+			range[i] = start + i;
+		else
+			range[i] = start - i;
+		i++;
+	}
+	return range;
+}
+
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+	int *range;
+	int start;
+	int end;
+	int i;
+	if (argc == 3)
+	{
+		start = atoi(argv[1]);
+		end = atoi(argv[2]);
+		range = ft_range(start, end);
+		i = 0;
+		int len = start - end;
+		if(len < 0)
+			len = len * -1;
+		len = len + 1;
+		while(i < len)
+		{
+			printf("%d ", range[i]);
+			i++;
+		}
+	}
+	printf("\n");
+	return 0;
+}
+
+
+/*#include <stdlib.h>
 #include <stdio.h>
 
 
@@ -42,7 +96,7 @@ int *ft_range(int start, int end)
 	}
 	return(arr);
 }
-
+*/
 
 
 //10:04 10:21
@@ -120,6 +174,7 @@ int *ft_range(int start, int end)
 //	return arr;
 //}
 //
+/*
 int main(int argc, char **argv)
 {
 	int *a;
@@ -147,4 +202,4 @@ int main(int argc, char **argv)
 	printf("\n");
 	free(a);
 	return 0;
-}
+}*/

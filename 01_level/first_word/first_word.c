@@ -1,4 +1,32 @@
-//3:40pm
+//9:40am
+
+#include <unistd.h>
+
+int	main(int argc, char **argv)
+{
+	int i = 0;
+	char *s;
+
+	if(argc == 2)
+	{
+		s = argv[1];
+
+		while( s[i] != '\0' && (s[i] == ' ' || s[i] == '\t'))
+			i++;
+		while( s[i] != '\0' && (s[i] >= 33 && s[i] <= 126))
+		{
+			write(1, &s[i] , 1);
+			i++;
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
+}
+
+
+
+
+/*//3:40pm
 #include <unistd.h>
 
 int main(int argc, char **argv)
@@ -25,7 +53,7 @@ int main(int argc, char **argv)
     return 0;
 }
 
-
+*/
 
 /*#include <unistd.h>
 

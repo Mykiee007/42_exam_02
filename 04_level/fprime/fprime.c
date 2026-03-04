@@ -1,4 +1,50 @@
+// 10:05 - 10:24
+
+#include <stdio.h>
 #include <stdlib.h>
+
+int	main(int argc, char **argv)
+{
+	int first = 0;
+	int	i = 2;
+	int n;
+
+	if(argc == 2)
+	{
+		n = atoi(argv[1]);
+		
+		if(n == 1 || n < 0)
+		{
+			printf("\n");
+			return 0;
+		}
+		i = 2;
+		while(i * i <= n)
+		{
+			while(n % i == 0)
+			{
+				if(first)
+					printf("*");
+				printf("%d", i);
+				n /= i;
+				first = 1;
+			}
+			i++;
+		}
+		if(i <= n)
+		{
+			if(first)
+				printf("*");
+			printf("%d", n);
+		}
+	}
+	printf("\n");
+	return 0;
+}
+
+
+
+/*#include <stdlib.h>
 #include <stdio.h>
 
 // 9:57am
@@ -42,7 +88,7 @@ int main(int argc, char **argv)
 	printf("\n");
 	return 0;
 }
-
+*/
 
 
 
