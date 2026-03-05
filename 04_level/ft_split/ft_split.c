@@ -1,4 +1,112 @@
 #include <stdlib.h>
+
+
+void ft_free_split(char **s)
+{
+	int i = 0;
+	if(!s)
+		return;
+	while(s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+}
+
+int is_delimiter(char c)
+{
+	if(c == ' ' || c == '\t' || c == '\n')
+		return 1;
+	else
+		return 0;
+}
+
+int		ft_wordcount(char *s)
+{
+	int i = 0;
+	int count = 0;
+
+	while(s[i])
+	{
+		while(s[i] && is_delimiter(s[i]))
+			i++;
+		if(s[i] && !is_delimiter(s[i]))
+			count++;
+		while(s[i] && !is_delimiter(s[i]))
+			i++;
+	}
+	return count;
+}
+
+char	**ft_split(char *str)
+{
+	if (!str)
+   		return NULL;
+
+	char *s = str;
+	int word = ft_wordcount(s);
+
+
+	char **arr = malloc((word + 1) * sizeof(char *));
+	if(!arr)
+		return NULL;
+
+	int i = 0;
+	int w = 0;
+	while(w < word)
+	{
+		while(s[i] && is_delimiter(s[i]))
+			i++;
+		int j = i;
+		while(s[j] && !is_delimiter(s[j]))
+			j++;
+		int len = j - i;
+		arr[w] = (char *)malloc((len + 1) * sizeof(char));
+		if(!arr[w]){
+			ft_free_split(arr);
+			return NULL;
+		}
+		int k = 0;
+		while(i < j)
+		{
+			arr[w][k] = s[i];
+			i++;
+			k++;
+		}
+		arr[w][k] = '\0';
+		w++;
+		i = j;
+	}
+	arr[word] = NULL;
+	return arr;
+}
+
+#include <stdio.h>
+
+int	main(int argc, char **argv)
+{
+	if(argc == 2)
+	{
+		char *s = argv[1];
+		int count = ft_wordcount(s);
+		printf("numnber of words: %d\n",count);
+		char **arr = ft_split(s);
+		int i = 0;
+		while(arr && arr[i])
+		{
+			printf("%s\n", arr[i]);
+			i++;
+		}
+			ft_free_split(arr);
+	}
+	printf("\n");
+
+	return 0;
+}
+
+
+/*#include <stdlib.h>
 //11:25am 12:03 pause resume 12:10 ~12:38 times up 12:44 with help
 
 int count_word(char *str)
@@ -106,7 +214,7 @@ int main(int argc, char **argv)
 	}
 	ft_free_split(arr);
 	return 0;
-}
+}*/
 /*
 #include <stdlib.h>
 #include <stdio.h>
