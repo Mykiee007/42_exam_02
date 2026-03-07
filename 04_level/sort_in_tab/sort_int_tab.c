@@ -1,4 +1,16 @@
-#include <stdio.h>
+void sort_int_tab(int *tab, unsigned int size)
+{
+	int *s;
+	int i;
+	s = tab;
+	if(!tab)
+		return NULL;
+	i = 0
+	while(size)
+}
+
+
+/*#include <stdio.h>
 // time 1:40 pm ~ 2:17 pm
 
 
@@ -60,4 +72,4 @@ int main(void)
 		i++;
 	}
 	return 0;
-}
+}*/
