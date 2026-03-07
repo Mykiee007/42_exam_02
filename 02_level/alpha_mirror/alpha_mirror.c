@@ -1,5 +1,28 @@
 #include <unistd.h>
 
+int main(int argc, char **argv)
+{
+	int i = 0;
+	char *s;
+	if ( argc == 2 )
+	{
+		s = argv[1];
+		while(s[i])
+		{
+			if(s[i] >= 'a' && s[i] <= 'z')
+				s[i] = 'z' - (s[i] - 'a');
+			else if (s[i] >= 'A' && s[i] <= 'Z')
+				s[i] = 'Z' - (s[i] - 'A');
+			write(1, &s[i], 1);
+			i++;
+		}
+	}
+	write(1, "\n", 1);
+	return 0;
+}
+
+/*#include <unistd.h>
+
 //10:43am - 10:54am
 
 void ft_putchar(char c)
@@ -32,4 +55,4 @@ int main(int argc, char **argv)
 	}
 	ft_putchar('\n');
 	return 0;
-}
+}*/

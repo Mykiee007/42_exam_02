@@ -6,7 +6,10 @@ void sort_int_tab(int *tab, unsigned int size)
 	if(!tab)
 		return NULL;
 	i = 0
-	while(size)
+	while(i <size)
+	{
+		
+	}
 }
 
 
