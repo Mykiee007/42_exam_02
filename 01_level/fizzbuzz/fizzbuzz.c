@@ -1,4 +1,18 @@
+//10:09 pm
+
 #include <unistd.h>
+
+int main(void)
+{
+    int i = 1;
+
+    while(i <= 100)
+    {
+        
+    }
+}
+
+/*#include <unistd.h>
 
 //12min
 
@@ -33,4 +47,4 @@ int main(void)
         ft_putchar('\n');
     }
     return 0;
-}
+}*/
