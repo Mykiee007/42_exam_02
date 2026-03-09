@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 /*
 
+=======
+>>>>>>> 69919b189f09ef041c7783ae57e58f3cc43dbfff
 Assignment name  : is_power_of_2
 Expected files   : is_power_of_2.c
 Allowed functions: None
@@ -11,6 +14,10 @@ This function returns 1 if the given number is a power of 2, otherwise it return
 
 Your function must be declared as follows:
 
+<<<<<<< HEAD
 int	    is_power_of_2(unsigned int n);
 
 */
+=======
+int	    is_power_of_2(unsigned int n);
+>>>>>>> 69919b189f09ef041c7783ae57e58f3cc43dbfff

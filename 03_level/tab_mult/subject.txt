@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 /*
 
+=======
+>>>>>>> 69919b189f09ef041c7783ae57e58f3cc43dbfff
 Assignment name  : tab_mult
 Expected files   : tab_mult.c
 Allowed functions: write
@@ -37,6 +40,10 @@ $>./tab_mult 19
 $>
 $>./tab_mult | cat -e
 $
+<<<<<<< HEAD
 $>
 
 */
+=======
+$>
+>>>>>>> 69919b189f09ef041c7783ae57e58f3cc43dbfff

@@ -6,7 +6,7 @@
 /*   By: mvelasqu <mvelasqu@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 14:48:39 by mvelasqu          #+#    #+#             */
-/*   Updated: 2026/03/04 13:40:47 by mvelasqu         ###   ########.fr       */
+/*   Updated: 2026/03/09 09:48:58 by mvelasqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(void)
 int	max(int* tab, unsigned int len)
 {
 	int		i;
-	
+	int		l;
 	if (!tab)
 		return (0);
 }*/
