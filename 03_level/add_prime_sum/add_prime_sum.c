@@ -1,5 +1,81 @@
-
 #include <unistd.h>
+
+int ft_atoi(char *s)
+{
+	int i = 0;
+	int result = 0;
+	int sign = 1;
+
+	if(s[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}	
+	while(s[i])
+	{
+		if(s[i] >= '0' && s[i] <= '9')
+			result = (result * 10) + (s[i] - '0');
+		i++;
+	}
+	return result*sign;
+}
+
+void ft_putnum(int n)
+{
+	char c;
+
+	if(n >= 10)
+		ft_putnum(n/10);
+	c = n % 10 + '0';
+	write(1, &c, 1);
+}
+
+int is_prime(int n)
+{
+	int i = 2;
+
+	if( n <= 0 || n == 1)
+		return 0;
+	while(i * i <= n)
+	{
+		if(n % i == 0)
+			return 0;
+		i++;
+	}
+	return 1;
+}
+
+int		main(int argc, char **argv)
+{
+	int i;
+	int num;
+	int sum;
+	
+	if (argc == 2)
+	{
+		num = ft_atoi(argv[1]);
+		sum = 0;
+		i = 2;
+		if(num <= 0)
+		{
+			write(1,"0\n",2);
+			return 0;
+		}
+		while(i <= num)
+		{
+			if(is_prime(i))
+				sum = sum + i;
+			i++;
+		}
+		ft_putnum(sum); 
+	}
+	else
+		write(1,"0",1);
+	write(1,"\n", 1);
+	return 0;
+}
+
+/*#include <unistd.h>
 
 // 8:40pm 9:02
 
@@ -81,4 +157,4 @@ int main(int argc, char **argv)
 	else 
 		write(1,"0\n",2);
 	return 0;
-}
+}*/
