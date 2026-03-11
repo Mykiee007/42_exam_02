@@ -1,4 +1,33 @@
+//10:09am - 10:13
 #include <unistd.h>
+
+
+void	print_bits(unsigned char octet)
+{
+	int i = 7;
+	while(i>=0)
+	{
+		if(octet & (1 << i))
+			write(1, "1", 1);
+		else
+			write(1, "0", 1);
+		i--;
+	}
+}
+
+
+#include <stdlib.h>
+int main(int argc, char **argv)
+{
+	if(argc == 2)
+	{
+		int a = atoi(argv[1]);
+		print_bits(a);
+	}
+	return 0;
+}
+
+/*#include <unistd.h>
 
 void    print_bits(unsigned char octet)
 {
@@ -26,7 +55,7 @@ int main(int argc, char **argv)
     write(1,"\n",1);
     return 0;
 }
-
+*/
 
 
 /*#include <unistd.h>

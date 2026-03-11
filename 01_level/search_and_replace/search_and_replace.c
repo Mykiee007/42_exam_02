@@ -1,4 +1,36 @@
 #include <unistd.h>
+
+int main(int argc, char **argv)
+{
+	char *s;
+	char *a;
+	char *b;
+	int i;
+
+	if(argc == 4)
+	{
+		i = 0;
+		s = argv[1];
+		a = argv[2];
+		b = argv[3];
+
+		if(!a[1] && !b[1])
+		{
+			while(s[i])
+			{
+				if(s[i] == a[0])
+					s[i] = b[0];
+				write(1, &s[i], 1);
+				i++;
+			}
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
+}
+
+
+/*#include <unistd.h>
 //1:33pm ~ 1:55 pm
 int main(int argc, char **argv)
 {
@@ -33,7 +65,7 @@ int main(int argc, char **argv)
     write(1,"\n",1);
     return 0;
 }
-
+*/
 //22 min
 
 /*
