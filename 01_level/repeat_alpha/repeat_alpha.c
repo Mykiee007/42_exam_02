@@ -1,3 +1,45 @@
+#include <unistd.h>
+
+int		main(int argc, char **argv)
+{
+	char *s;
+	int i;
+	int rep;
+
+	if (argc == 2)
+	{
+		s = argv[1];
+		i = 0;
+		while(s[i])
+		{
+			if(s[i] >= 'a' && s[i] <= 'z')
+			{
+				rep = s[i] - 'a';
+				while(rep >= 0)
+				{
+					write(1,&s[i], 1);
+					rep--;
+				}
+			}
+			else if(s[i] >= 'A' && s[i] <= 'Z')
+			{
+				rep = s[i] - 'A';
+				while(rep >= 0)
+				{
+					write(1,&s[i], 1);
+					rep--;
+				}
+			}
+			else
+				write(1, &s[i], 1);
+			i++;
+		}
+	}
+	write(1, "\n", 1);
+	return 0;
+}
+
+/*
 //1:20pm - 1:28
 #include <unistd.h>
 
@@ -28,7 +70,7 @@ int main(int argc, char **argv)
 	}
 	write(1, "\n", 1);
 	return 0;
-}
+}*/
 
 /*#include <unistd.h>
 
